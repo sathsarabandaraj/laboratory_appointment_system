@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class DoctorDto {
-    private Long user_id;
+    private int user_id;
     private String username;
     private UserRole role;
     private String first_name;

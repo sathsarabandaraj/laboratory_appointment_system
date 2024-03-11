@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class PatientDto {
-    private Long user_id;
+    private int user_id;
     private String username;
     private UserRole role;
     private String first_name;

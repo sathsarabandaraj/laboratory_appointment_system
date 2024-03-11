@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class LabTechnicianDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private int user_id;
     private String username;
     private UserRole role;
     private String first_name;
