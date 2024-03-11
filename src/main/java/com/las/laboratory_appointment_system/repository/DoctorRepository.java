@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface DoctorRepository extends JpaRepository<Doctor, Long> {
+public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
     @Query("SELECT p FROM Patient p WHERE p.first_name LIKE CONCAT('%', :query, '%')")
     List<Doctor> searchDoctors(String query);
 }

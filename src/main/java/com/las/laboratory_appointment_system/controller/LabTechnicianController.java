@@ -48,14 +48,14 @@ public class LabTechnicianController {
     }
 
     @GetMapping("/labTechnicians/{user_id}/edit")
-    public String editLabTechnicianForm(@PathVariable("user_id") Long labTechnicianId, Model model) {
+    public String editLabTechnicianForm(@PathVariable("user_id") int labTechnicianId, Model model) {
         LabTechnicianDto labTechnician = labTechnicianService.findLabTechnicianById(labTechnicianId);
         model.addAttribute("labTechnician", labTechnician);
         return "labTechnician/labTechnician-edit";
     }
 
     @PostMapping("/labTechnicians/{user_id}/edit")
-    public String updateLabTechnician(@PathVariable("user_id") Long userId, @ModelAttribute("labTechnician") LabTechnicianDto labTechnicianDto) {
+    public String updateLabTechnician(@PathVariable("user_id") int userId, @ModelAttribute("labTechnician") LabTechnicianDto labTechnicianDto) {
         labTechnicianDto.setUser_id(userId);
         System.out.print(labTechnicianDto);
         labTechnicianService.updateLabTechnician(labTechnicianDto);
@@ -63,14 +63,14 @@ public class LabTechnicianController {
     }
 
     @GetMapping("/labTechnicians/{user_id}")
-    public String labTechnicianDetail(@PathVariable("user_id") long labTechnicianId, Model model) {
+    public String labTechnicianDetail(@PathVariable("user_id") int labTechnicianId, Model model) {
         LabTechnicianDto labTechnicianDto = labTechnicianService.findLabTechnicianById(labTechnicianId);
         model.addAttribute("labTechnician", labTechnicianDto);
         return "labTechnician/labTechnician-detail";
     }
 
     @GetMapping("/labTechnicians/{user_id}/delete")
-    public String deleteClub(@PathVariable("user_id") Long labTechnicianId) {
+    public String deleteClub(@PathVariable("user_id") int labTechnicianId) {
         labTechnicianService.delete(labTechnicianId);
         return "redirect:/labTechnicians";
     }

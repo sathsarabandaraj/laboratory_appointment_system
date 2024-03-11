@@ -10,11 +10,11 @@ public interface PatientService {
 
     Patient savePatient(Patient patient);
 
-    PatientDto findPatientById(Long patientId);
+    PatientDto findPatientById(int patientId);
 
     void updatePatient(PatientDto patient);
 
-    void delete(Long patientId);
+    void delete(int patientId);
 
     List<PatientDto> searchPatients(String query);
 }

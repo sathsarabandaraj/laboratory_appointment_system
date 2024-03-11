@@ -32,6 +32,8 @@
                 <th scope="col">Time</th>
                 <th scope="col">Test Type</th>
                 <th scope="col">Status</th>
+                <th scope="col">Description</th>
+                <th scope="col">Details</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -42,8 +44,9 @@
                 <td th:text="${appointment.p_first_name}"></td>
                 <td th:text="${appointment.d_first_name}"></td>
                 <td th:text="${appointment.date_time}"></td>
-                <td th:text="${appointment.test_type}"></td>                <td th:text="${appointment.first_name}"></td>
+                <td th:text="${appointment.test_type}"></td>
                 <td th:text="${appointment.status}"></td>
+                <td th:text="${appointment.description}"></td>
                 <td><a class="btn btn-primary" th:href="@{/appointments/{id}(id=${appointment.id})}">Details</a>
                 </td>
                 <td><a class="btn btn-primary" th:href="@{/appointments/{id}/edit(id=${appointment.id})}">Edit</a>

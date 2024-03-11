@@ -32,7 +32,7 @@ public class LabTechnicianServiceImplementation implements LabTechnicianService 
         return labTechnicianRepository.save(labTechnician);
     }
 
-    public LabTechnicianDto findLabTechnicianById(Long labTechnicianId) {
+    public LabTechnicianDto findLabTechnicianById(int labTechnicianId) {
         LabTechnician labTechnician = labTechnicianRepository.findById(labTechnicianId).get();
         return LabTechnicianMapper.labTechnicianToLabTechnicianDto(labTechnician);
     }
@@ -42,7 +42,7 @@ public class LabTechnicianServiceImplementation implements LabTechnicianService 
         labTechnicianRepository.save(labTechnician);
     }
 
-    public void delete(Long labTechnicianId) {
+    public void delete(int labTechnicianId) {
         labTechnicianRepository.deleteById(labTechnicianId);
     }
 

@@ -13,5 +13,5 @@ public interface AppointmentService {
 
     Appointment createAppointment(Appointment appointment);
 
-    Appointment getAppointmentById(Long doctorId);
+    Appointment getAppointmentById(int doctorId);
 }

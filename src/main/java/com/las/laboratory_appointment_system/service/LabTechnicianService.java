@@ -10,11 +10,11 @@ public interface LabTechnicianService {
 
     LabTechnician saveLabTechnician(LabTechnician labTechnician);
 
-    LabTechnicianDto findLabTechnicianById(Long labTechnicianId);
+    LabTechnicianDto findLabTechnicianById(int labTechnicianId);
 
     void updateLabTechnician(LabTechnicianDto labTechnician);
 
-    void delete(Long labTechnicianId);
+    void delete(int labTechnicianId);
 
     List<LabTechnicianDto> searchLabTechnicians(String query);
 }

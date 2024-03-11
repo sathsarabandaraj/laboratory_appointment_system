@@ -10,11 +10,11 @@ public interface DoctorService {
 
     Doctor saveDoctor(Doctor doctor);
 
-    DoctorDto findDoctorById(Long doctorId);
+    DoctorDto findDoctorById(int doctorId);
 
     void updateDoctor(DoctorDto doctor);
 
-    void delete(Long doctorId);
+    void delete(int doctorId);
 
     List<DoctorDto> searchDoctors(String query);
 }

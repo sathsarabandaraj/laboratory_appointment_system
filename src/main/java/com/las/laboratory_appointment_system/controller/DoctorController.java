@@ -48,14 +48,14 @@ public class DoctorController {
     }
 
     @GetMapping("/doctors/{user_id}/edit")
-    public String editDoctorForm(@PathVariable("user_id") Long doctorId, Model model) {
+    public String editDoctorForm(@PathVariable("user_id") int doctorId, Model model) {
         DoctorDto doctor = doctorService.findDoctorById(doctorId);
         model.addAttribute("doctor", doctor);
         return "doctor/doctor-edit";
     }
 
     @PostMapping("/doctors/{user_id}/edit")
-    public String updateDoctor(@PathVariable("user_id") Long userId, @ModelAttribute("doctor") DoctorDto doctorDto) {
+    public String updateDoctor(@PathVariable("user_id") int userId, @ModelAttribute("doctor") DoctorDto doctorDto) {
         doctorDto.setUser_id(userId);
         System.out.print(doctorDto);
         doctorService.updateDoctor(doctorDto);
@@ -63,14 +63,14 @@ public class DoctorController {
     }
 
     @GetMapping("/doctors/{user_id}")
-    public String doctorDetail(@PathVariable("user_id") long doctorId, Model model) {
+    public String doctorDetail(@PathVariable("user_id") int doctorId, Model model) {
         DoctorDto doctorDto = doctorService.findDoctorById(doctorId);
         model.addAttribute("doctor", doctorDto);
         return "doctor/doctor-detail";
     }
 
     @GetMapping("/doctors/{user_id}/delete")
-    public String deleteClub(@PathVariable("user_id") Long doctorId) {
+    public String deleteClub(@PathVariable("user_id") int doctorId) {
         doctorService.delete(doctorId);
         return "redirect:/doctors";
     }

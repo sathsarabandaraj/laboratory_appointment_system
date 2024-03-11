@@ -22,7 +22,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private int user_id;
     private String username;
     private String password;
     private List<UserRole> role;

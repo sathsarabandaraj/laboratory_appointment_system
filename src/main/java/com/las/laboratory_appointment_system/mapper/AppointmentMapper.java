@@ -1,8 +1,6 @@
 package com.las.laboratory_appointment_system.mapper;
 
 import com.las.laboratory_appointment_system.dto.AppointmentListViewDto;
-import com.las.laboratory_appointment_system.model.Doctor;
-import com.las.laboratory_appointment_system.model.Patient;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,7 +10,9 @@ public class AppointmentMapper {
     public static List<AppointmentListViewDto> mapObjToAppointmentListViewDto(List<Object[]> objectArray) {
         List<AppointmentListViewDto> appointmentList = new ArrayList<>();
 
+
         for (Object[] obj : objectArray) {
+            System.out.println(obj[1]);
             AppointmentListViewDto dto = mapToObjectArrayToDto(obj);
             appointmentList.add(dto);
         }
@@ -26,8 +26,8 @@ public class AppointmentMapper {
         String description = (String) obj[2];
         String status = (String) obj[3];
         String testType = (String) obj[4];
-        String doctorFirstName = ((Doctor) obj[5]).getFirst_name();
-        String patientFirstName = ((Patient) obj[6]).getFirst_name();
+        String doctorFirstName = (String) obj[5];
+        String patientFirstName = (String) obj[6];
 
         return new AppointmentListViewDto(
                 id,

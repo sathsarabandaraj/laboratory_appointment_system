@@ -32,7 +32,7 @@ public class DoctorServiceImplementation implements DoctorService {
         return doctorRepository.save(doctor);
     }
 
-    public DoctorDto findDoctorById(Long doctorId) {
+    public DoctorDto findDoctorById(int doctorId) {
         Doctor doctor = doctorRepository.findById(doctorId).get();
         return DoctorMapper.doctorToDoctorDto(doctor);
     }
@@ -42,7 +42,7 @@ public class DoctorServiceImplementation implements DoctorService {
         doctorRepository.save(doctor);
     }
 
-    public void delete(Long doctorId) {
+    public void delete(int doctorId) {
         doctorRepository.deleteById(doctorId);
     }
 

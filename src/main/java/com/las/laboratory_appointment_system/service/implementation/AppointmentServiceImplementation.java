@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.las.laboratory_appointment_system.mapper.AppointmentMapper.mapObjToAppointmentListViewDto;
-import static org.codehaus.groovy.runtime.DefaultGroovyMethods.collect;
 
 
 @Service
@@ -37,7 +35,7 @@ public class AppointmentServiceImplementation implements AppointmentService {
         return mapObjToAppointmentListViewDto(appointmentData);
     }
 
-    public Appointment getAppointmentById(Long id) {
+    public Appointment getAppointmentById(int id) {
         return appointmentRepository.findById(id).get();
     }
 

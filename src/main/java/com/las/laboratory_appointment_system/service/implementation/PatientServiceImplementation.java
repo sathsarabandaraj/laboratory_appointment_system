@@ -32,7 +32,7 @@ public class PatientServiceImplementation implements PatientService {
         return patientRepository.save(patient);
     }
 
-    public PatientDto findPatientById(Long patientId) {
+    public PatientDto findPatientById(int patientId) {
         Patient patient = patientRepository.findById(patientId).get();
         return PatientMapper.patientToPatientDto(patient);
     }
@@ -42,7 +42,7 @@ public class PatientServiceImplementation implements PatientService {
         patientRepository.save(patient);
     }
 
-    public void delete(Long patientId) {
+    public void delete(int patientId) {
         patientRepository.deleteById(patientId);
     }
 
