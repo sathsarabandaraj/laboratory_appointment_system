@@ -1,6 +1,7 @@
 package com.las.laboratory_appointment_system.service.implementation;
 
 import com.las.laboratory_appointment_system.dto.PatientDto;
+import com.las.laboratory_appointment_system.dto.UserDropListDto;
 import com.las.laboratory_appointment_system.mapper.PatientMapper;
 import com.las.laboratory_appointment_system.model.Patient;
 import com.las.laboratory_appointment_system.repository.PatientRepository;
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.las.laboratory_appointment_system.mapper.AppointmentMapper.mapObjToAppointmentListViewDto;
+import static com.las.laboratory_appointment_system.mapper.UserDropListMapper.mapObjToUserDropListDto;
 
 @Service
 public class PatientServiceImplementation implements PatientService {
@@ -23,7 +27,6 @@ public class PatientServiceImplementation implements PatientService {
     @Override
     public List<PatientDto> findAllPatients() {
         List<Patient> patients = patientRepository.findAll();
-        System.out.print(patients);
         return patients.stream().map(PatientMapper::patientToPatientDto).collect(Collectors.toList());
     }
 
@@ -49,6 +52,12 @@ public class PatientServiceImplementation implements PatientService {
     public List<PatientDto> searchPatients(String query) {
         List<Patient> patients = patientRepository.searchPatients(query);
         return patients.stream().map(PatientMapper::patientToPatientDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<UserDropListDto> getDropList() {
+        List<Object[]> userDropListObj = patientRepository.getUserDropList();
+        return mapObjToUserDropListDto(userDropListObj);
     }
 
 

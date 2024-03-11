@@ -14,4 +14,6 @@ public interface AppointmentService {
     Appointment createAppointment(Appointment appointment);
 
     Appointment getAppointmentById(int doctorId);
+
+    Appointment saveAppointment(Appointment appointment);
 }

@@ -12,17 +12,17 @@
             <div class="col-md-10">
             </div>
             <div class="col-md-2 text-right">
-                <button type="button" class="btn btn-primary mt-3" onclick="window.location.href = 'appointments/new'">Add
-                    New Doctor
+                <button type="button" class="btn btn-primary mt-3" onclick="window.location.href = 'appointments/new'">
+                    Schedule New
                 </button>
             </div>
         </div>
-<!--        <div class="row mt-3">
-            <form th:action="@{/appointments/search}" class="form-inline my-2 my-lg-0 mb-3">
-                <input name="query" class="form-control mr-sm-2 mb-5" type="search" placeholder="Search using first name"
-                       aria-label="Search">
-            </form>
-        </div>-->
+        <!--        <div class="row mt-3">
+                    <form th:action="@{/appointments/search}" class="form-inline my-2 my-lg-0 mb-3">
+                        <input name="query" class="form-control mr-sm-2 mb-5" type="search" placeholder="Search using first name"
+                               aria-label="Search">
+                    </form>
+                </div>-->
         <table class="table">
             <thead>
             <tr>
@@ -49,10 +49,10 @@
                 <td th:text="${appointment.description}"></td>
                 <td><a class="btn btn-primary" th:href="@{/appointments/{id}(id=${appointment.id})}">Details</a>
                 </td>
-                <td><a class="btn btn-primary" th:href="@{/appointments/{id}/edit(id=${appointment.id})}">Edit</a>
+                <td><a class="btn btn-primary" th:href="@{/appointments/{id}/edit(id=${appointment.id})}">Reschedule</a>
                 </td>
-                <td><a class="btn btn-danger" th:href="@{/appointments/{id}/delete(id=${appointment.id})}">Delete
-                    Doctor</a></td>
+                <td><a class="btn btn-danger" th:href="@{/appointments/{id}/delete(id=${appointment.id})}">Cancel
+                </a></td>
             </tr>
             </tbody>
         </table>

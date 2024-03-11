@@ -9,14 +9,10 @@ import java.util.List;
 public class AppointmentMapper {
     public static List<AppointmentListViewDto> mapObjToAppointmentListViewDto(List<Object[]> objectArray) {
         List<AppointmentListViewDto> appointmentList = new ArrayList<>();
-
-
         for (Object[] obj : objectArray) {
-            System.out.println(obj[1]);
             AppointmentListViewDto dto = mapToObjectArrayToDto(obj);
             appointmentList.add(dto);
         }
-
         return appointmentList;
     }
 
@@ -28,7 +24,6 @@ public class AppointmentMapper {
         String testType = (String) obj[4];
         String doctorFirstName = (String) obj[5];
         String patientFirstName = (String) obj[6];
-
         return new AppointmentListViewDto(
                 id,
                 dateTime,

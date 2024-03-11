@@ -23,7 +23,6 @@ public class LabTechnicianServiceImplementation implements LabTechnicianService 
     @Override
     public List<LabTechnicianDto> findAllLabTechnicians() {
         List<LabTechnician> labTechnicians = labTechnicianRepository.findAll();
-        System.out.print(labTechnicians);
         return labTechnicians.stream().map(LabTechnicianMapper::labTechnicianToLabTechnicianDto).collect(Collectors.toList());
     }
 

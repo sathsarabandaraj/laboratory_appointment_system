@@ -1,6 +1,7 @@
 package com.las.laboratory_appointment_system.service.implementation;
 
 import com.las.laboratory_appointment_system.dto.DoctorDto;
+import com.las.laboratory_appointment_system.dto.UserDropListDto;
 import com.las.laboratory_appointment_system.mapper.DoctorMapper;
 import com.las.laboratory_appointment_system.model.Doctor;
 import com.las.laboratory_appointment_system.repository.DoctorRepository;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.las.laboratory_appointment_system.mapper.UserDropListMapper.mapObjToUserDropListDto;
 
 @Service
 public class DoctorServiceImplementation implements DoctorService {
@@ -23,7 +26,6 @@ public class DoctorServiceImplementation implements DoctorService {
     @Override
     public List<DoctorDto> findAllDoctors() {
         List<Doctor> doctors = doctorRepository.findAll();
-        System.out.print(doctors);
         return doctors.stream().map(DoctorMapper::doctorToDoctorDto).collect(Collectors.toList());
     }
 
@@ -51,5 +53,10 @@ public class DoctorServiceImplementation implements DoctorService {
         return doctors.stream().map(DoctorMapper::doctorToDoctorDto).collect(Collectors.toList());
     }
 
+    @Override
+    public List<UserDropListDto> getDropList() {
+        List<Object[]> userDropListObj = doctorRepository.getUserDropList();
+        return mapObjToUserDropListDto(userDropListObj);
+    }
 
 }

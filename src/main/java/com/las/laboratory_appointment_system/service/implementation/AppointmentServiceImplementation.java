@@ -24,19 +24,16 @@ public class AppointmentServiceImplementation implements AppointmentService {
 
     public List<AppointmentListViewDto> getAllAppointments() {
         List<Object[]> appointmentData = appointmentRepository.sa();
-
-        for (Object[] objArray : appointmentData) {
-            for (Object obj : objArray) {
-                System.out.print(obj + " ");
-            }
-            System.out.println();
-        }
-
         return mapObjToAppointmentListViewDto(appointmentData);
     }
 
     public Appointment getAppointmentById(int id) {
         return appointmentRepository.findById(id).get();
+    }
+
+    @Override
+    public Appointment saveAppointment(Appointment appointment) {
+        return appointmentRepository.save(appointment);
     }
 
     public Appointment createAppointment(Appointment appointment) {
