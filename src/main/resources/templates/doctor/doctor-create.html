@@ -65,6 +65,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <input type="text" class="form-control" id="department" name="department"
+                                   th:field="*{department}" placeholder="Department">
+                            <p th:if="${#fields.hasErrors('department')}" class="text-danger"
+                               th:errors="*{department}"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="specialize">Specialize</label>
+                            <input type="text" class="form-control" id="specialize" name="Specialize" th:field="*{specialize}"
+                                   placeholder="Specialize">
+                            <p th:if="${#fields.hasErrors('specialize')}" class="text-danger" th:errors="*{specialize}"></p>
+                        </div>
+                    </div>
+                </div>
                 <div class="mx-0 my-0 mt-3 row ">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
