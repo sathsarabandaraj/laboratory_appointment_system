@@ -70,7 +70,7 @@ public class DoctorController {
     }
 
     @GetMapping("/doctors/{user_id}/delete")
-    public String deleteClub(@PathVariable("user_id") int doctorId) {
+    public String deleteDoctor(@PathVariable("user_id") int doctorId) {
         doctorService.delete(doctorId);
         return "redirect:/doctors";
     }

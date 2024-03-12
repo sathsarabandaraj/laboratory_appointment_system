@@ -2,7 +2,6 @@ package com.las.laboratory_appointment_system.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +21,7 @@ public class Appointment {
     @ManyToOne
     private Patient patient;
     private LocalDateTime date_time;
-    @ColumnDefault("SCHEDULED")
+    @Column(columnDefinition = "VARCHAR(10) DEFAULT 'SCHEDULED'")
     private String status;
     private String test_type;
     private String description;

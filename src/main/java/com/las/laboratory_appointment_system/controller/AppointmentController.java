@@ -1,6 +1,8 @@
 package com.las.laboratory_appointment_system.controller;
 
 import com.las.laboratory_appointment_system.dto.AppointmentListViewDto;
+import com.las.laboratory_appointment_system.dto.DoctorDto;
+import com.las.laboratory_appointment_system.dto.PatientDto;
 import com.las.laboratory_appointment_system.dto.UserDropListDto;
 import com.las.laboratory_appointment_system.model.Appointment;
 import com.las.laboratory_appointment_system.model.Doctor;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -48,6 +51,41 @@ public class AppointmentController {
     @PostMapping("/appointments/new")
     public String saveDoctor(@ModelAttribute("appointment") Appointment appointment) {
         appointmentService.saveAppointment(appointment);
+        return "redirect:/appointments";
+    }
+
+    @GetMapping("/appointments/{id}")
+    public String appointmentDetail(@PathVariable("id") int id, Model model) {
+        Appointment appointment = appointmentService.findAppointmentById(id);
+        DoctorDto doctorDto = doctorService.findDoctorById(appointment.getDoctor().getUser_id());
+        PatientDto patientDto = patientService.findPatientById(appointment.getPatient().getUser_id());
+        model.addAttribute("doctor", doctorDto);
+        model.addAttribute("patient", patientDto);
+        model.addAttribute("appointment", appointment);
+        return "appointment/appointment-detail";
+    }
+
+    @GetMapping("/appointments/{id}/edit")
+    public String editAppointmentForm(@PathVariable("id") int id, Model model) {
+        Appointment appointment = appointmentService.findAppointmentById(id);
+        List<DoctorDto> doctorDto = doctorService.findAllDoctors();
+        List<PatientDto> patientDto = patientService.findAllPatients();
+        model.addAttribute("appointment", appointment);
+        model.addAttribute("doctors", doctorDto);
+        model.addAttribute("patients", patientDto);
+        return "appointment/appointment-edit";
+    }
+
+    @PostMapping("/appointment/{id}/edit")
+    public String updateAppointment(@PathVariable("id") int id, @ModelAttribute("appointment") Appointment appointment) {
+        appointment.setId(id);
+        appointmentService.updateAppointment(appointment);
+        return "redirect:/appointments";
+    }
+
+    @GetMapping("/appointments/{id}/delete")
+    public String deleteAppointment(@PathVariable("id") int id) {
+        appointmentService.delete(id);
         return "redirect:/appointments";
     }
 }

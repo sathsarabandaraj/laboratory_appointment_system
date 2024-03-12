@@ -36,6 +36,21 @@ public class AppointmentServiceImplementation implements AppointmentService {
         return appointmentRepository.save(appointment);
     }
 
+    @Override
+    public Appointment findAppointmentById(int id) {
+        return appointmentRepository.findById(id).get();
+    }
+
+    @Override
+    public void delete(int id) {
+        appointmentRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateAppointment(Appointment appointment) {
+        appointmentRepository.save(appointment);
+    }
+
     public Appointment createAppointment(Appointment appointment) {
         return appointmentRepository.save(appointment);
     }
